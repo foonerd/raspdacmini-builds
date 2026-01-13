@@ -1,0 +1,23 @@
+FROM arm64v8/node:20.15-bookworm
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Install build dependencies for node-canvas and native module
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    git \
+    python3 \
+    pkg-config \
+    libcairo2-dev \
+    libpango1.0-dev \
+    libjpeg-dev \
+    libgif-dev \
+    librsvg2-dev \
+    libpixman-1-dev \
+    file \
+    && rm -rf /var/lib/apt/lists/*
+
+# Verify Node version
+RUN node --version && npm --version
+
+WORKDIR /build

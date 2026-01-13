@@ -1,0 +1,7 @@
+# Build outputs
+out/armhf/*.tar.gz
+out/arm64/*.tar.gz
+
+# Keep directory structure
+!out/armhf/.gitkeep
+!out/arm64/.gitkeep
